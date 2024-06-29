@@ -98,7 +98,7 @@ const Projects = () => {
                             This innovative solution transforms a traditionally time-consuming task into an instantaneous operation, completing queries in less than 1 second.
                         </Text>
                         <VStack align="start" spacing={4} width="100%">
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="center">
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
                                 Key Features:
                             </Heading>
                             <UnorderedList spacing={2} pl={4}>
@@ -108,7 +108,7 @@ const Projects = () => {
                                 <ListItem>Automated index updates</ListItem>
                                 <ListItem>Decreases traffic to the Exchange Server</ListItem>
                             </UnorderedList>
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="center">
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
                                 Technical Highlights:
                             </Heading>
                             <UnorderedList spacing={2} pl={4}>
@@ -158,7 +158,7 @@ const Projects = () => {
                             This application provides a user-friendly interface for interacting with locally installed Ollama language models. It was developed in a Windows 10 environment using conda.
                         </Text>
                         <VStack align="start" spacing={4} width="100%">
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="center">
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
                                 Key Features:
                             </Heading>
                             <UnorderedList spacing={2} pl={4}>
@@ -167,7 +167,7 @@ const Projects = () => {
                                 <ListItem>Uses http://localhost:11434/api/generate for response generation</ListItem>
                                 <ListItem>Customizable model selection (default: llama2:13b)</ListItem>
                             </UnorderedList>
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="center">
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
                                 Technical Details:
                             </Heading>
                             <UnorderedList spacing={2} pl={4}>
@@ -218,7 +218,7 @@ const Projects = () => {
                             This website serves as a central hub for my professional online presence, featuring a sleek dark mode design and smooth user experience.
                         </Text>
                         <VStack align="start" spacing={4} width="100%">
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="center">
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
                                 Key Features:
                             </Heading>
                             <UnorderedList spacing={2} pl={4}>
@@ -228,7 +228,7 @@ const Projects = () => {
                                 <ListItem>Skills section highlighting technical expertise</ListItem>
                                 <ListItem>Smooth navigation and scrolling effects</ListItem>
                             </UnorderedList>
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="center">
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
                                 Technologies Used:
                             </Heading>
                             <UnorderedList spacing={2} pl={4}>

@@ -39,7 +39,7 @@ const Portfolio = () => {
     };
 
     return (
-        <Box bgGradient={bgGradient} minHeight="100vh" color={textColor} paddingLeft={4} paddingRight={4}>
+        <Box bgGradient={bgGradient} minHeight="100vh" color={textColor} paddingLeft={4} paddingRight={4} paddingTop={5}>
             <Container maxW="container.xl" py={20}>
                 <VStack spacing={20} align="center" textAlign="center">
                     <Box>
