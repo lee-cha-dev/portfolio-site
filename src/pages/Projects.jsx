@@ -16,6 +16,7 @@ import {
 import {ChevronLeftIcon, ExternalLinkIcon} from '@chakra-ui/icons';
 import ollamaImage from "../images/ollama.png";
 import tscImage from "../images/tsc.png";
+import portfolioImage from "../images/portfolio.png";
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 const Projects = () => {
@@ -190,6 +191,65 @@ const Projects = () => {
                             GitHub <ExternalLinkIcon mx="2px" />
                         </Button>
                     </Link>
+
+                    <Divider my={10} borderColor="whiteAlpha.300" />
+
+                    {/* Portfolio Site Project */}
+                    <VStack spacing={8} align="center" maxW="3xl">
+                        <Heading
+                            as="h2"
+                            fontSize="2xl"
+                            color="#64FFDA"
+                            textAlign="center"
+                        >
+                            Personal Portfolio Website
+                        </Heading>
+                        <Text fontSize="lg" textAlign="center">
+                            A modern, responsive portfolio website showcasing my projects and skills as a Software Developer and Data Analyst.
+                        </Text>
+                        <Image
+                            src={portfolioImage}
+                            alt="Portfolio Website Screenshot"
+                            borderRadius="md"
+                            maxWidth="100%"
+                            height="auto"
+                        />
+                        <Text fontSize="lg" textAlign="center">
+                            This website serves as a central hub for my professional online presence, featuring a sleek dark mode design and smooth user experience.
+                        </Text>
+                        <VStack align="start" spacing={4} width="100%">
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="center">
+                                Key Features:
+                            </Heading>
+                            <UnorderedList spacing={2} pl={4}>
+                                <ListItem>Responsive design for all devices</ListItem>
+                                <ListItem>Dark mode theme for modern aesthetics</ListItem>
+                                <ListItem>Project showcase with detailed descriptions</ListItem>
+                                <ListItem>Skills section highlighting technical expertise</ListItem>
+                                <ListItem>Smooth navigation and scrolling effects</ListItem>
+                            </UnorderedList>
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="center">
+                                Technologies Used:
+                            </Heading>
+                            <UnorderedList spacing={2} pl={4}>
+                                <ListItem>React.js for building the UI</ListItem>
+                                <ListItem>Chakra UI for styling and components</ListItem>
+                                <ListItem>React Router for navigation</ListItem>
+                                <ListItem>GitHub Pages for hosting</ListItem>
+                            </UnorderedList>
+                        </VStack>
+                        <Link href="https://github.com/lee-cha-dev/portfolio-site" target="_blank" isExternal color="#64FFDA">
+                            <Button
+                                colorScheme="blue"
+                                size="lg"
+                                px={8}
+                                {...glowStyles}
+                                boxShadow="0 0 15px #4299E1"
+                            >
+                                GitHub <ExternalLinkIcon mx="2px" />
+                            </Button>
+                        </Link>
+                    </VStack>
                 </VStack>
             </Container>
         </Box>
