@@ -13,8 +13,8 @@
 
 # production
 #/build
-.github/
-.github/*
+#.github/
+#.github/*
 
 # misc
 .DS_Store
