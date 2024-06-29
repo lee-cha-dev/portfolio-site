@@ -1,0 +1,21 @@
+body {
+  background: black;
+}
+.App {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+  background-color: black;
+  color: silver;
+  overflow: hidden;
+}
+
+.App-header {
+  padding-top: 5vh;
+  text-align: center;
+}
