@@ -1,6 +1,6 @@
 import './App.css';
 import {ChakraProvider} from "@chakra-ui/react";
-import {HashRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Portfolio from "./pages/Portfolio";
 import theme from "./theme";
 import Projects from "./pages/Projects";
@@ -8,7 +8,7 @@ import Projects from "./pages/Projects";
 function App() {
   return (
       <ChakraProvider theme={theme}>
-          <HashRouter>
+          <BrowserRouter>
               <div className="App">
                   <div className="App-content">
                       <Routes>
@@ -17,7 +17,7 @@ function App() {
                       </Routes>
                   </div>
               </div>
-          </HashRouter>
+          </BrowserRouter>
       </ChakraProvider>
   );
 }
