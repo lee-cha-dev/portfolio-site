@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Box, VStack, Heading, Text, Button, SimpleGrid, Container, Flex, Badge, Link, Stack} from '@chakra-ui/react';
+import {Box, VStack, Heading, Text, Button, SimpleGrid, Container, Badge, Stack} from '@chakra-ui/react';
 import {Link as RouterLink, useLocation, useNavigate} from 'react-router-dom';
 
 const Portfolio = () => {
@@ -30,11 +30,6 @@ const Portfolio = () => {
 
     const handleViewProjects = () => {
         navigate('/projects');
-        setTimeout(() => window.scrollTo(0, 0), 100);
-    };
-
-    const handleBackToHome = () => {
-        navigate('/');
         setTimeout(() => window.scrollTo(0, 0), 100);
     };
 
