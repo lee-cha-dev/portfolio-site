@@ -24,14 +24,6 @@ const Projects = () => {
     const textColor = "whiteAlpha.900";
     const navigate = useNavigate();
 
-    const glowStyles = {
-        transition: "all 0.3s ease-in-out",
-        _hover: {
-            boxShadow: "0 0 20px #4299E1, 0 0 30px #4299E1",
-            transform: "translateY(-2px)",
-        }
-    };
-
     const blueGlowStyles = {
         transition: "all 0.3s ease-in-out",
         bgGradient: "linear(to-r, #3182CE, #2B6CB0)",
@@ -41,18 +33,6 @@ const Projects = () => {
             boxShadow: "0 0 20px #3182CE, 0 0 30px #3182CE",
             transform: "translateY(-2px)",
             bgGradient: "linear(to-r, #2B6CB0, #2C5282)"
-        }
-    };
-
-    const purpleGlowStyles = {
-        transition: "all 0.3s ease-in-out",
-        bgGradient: "linear(to-r, #6B46C1, #553C9A)",
-        boxShadow: "0 0 15px #6B46C1",
-        color: "white",
-        _hover: {
-            boxShadow: "0 0 20px #6B46C1, 0 0 30px #6B46C1",
-            transform: "translateY(-2px)",
-            bgGradient: "linear(to-r, #553C9A, #44337A)"
         }
     };
 
