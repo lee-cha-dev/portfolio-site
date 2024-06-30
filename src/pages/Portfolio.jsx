@@ -60,7 +60,7 @@ const Portfolio = () => {
 
     const handleDownloadResume = async () => {
         const fileName = 'Lee_Charles_Resume.pdf';
-        const fileUrl = ''; // Ensure this path is correct
+        const fileUrl = 'https://raw.githubusercontent.com/lee-cha-dev/portfolio-site/master/src/data/resume_dev_2024.pdf';
 
         try {
             const response = await fetch(fileUrl);
@@ -69,13 +69,7 @@ const Portfolio = () => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            const contentType = response.headers.get('content-type');
-            console.log('Content-Type:', contentType); // Log the content type
-
-            // Proceed with download even if content-type is not PDF
             const blob = await response.blob();
-            console.log('Blob type:', blob.type); // Log the blob type
-
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
@@ -87,7 +81,7 @@ const Portfolio = () => {
 
             toast({
                 title: "Resume download initiated",
-                description: "If the download doesn't start automatically, please check your downloads folder or try the manual download link.",
+                description: "If the download doesn't start automatically, please check your downloads folder.",
                 status: "success",
                 duration: 5000,
                 isClosable: true,
