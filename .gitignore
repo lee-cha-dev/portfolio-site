@@ -8,12 +8,11 @@
 .idea/
 .idea/*
 
-
 # testing
 /coverage
 
 # production
-#/build
+build
 #.github/
 #.github/*
 

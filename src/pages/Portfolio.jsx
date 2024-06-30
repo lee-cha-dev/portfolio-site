@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
-import {Box, VStack, Heading, Text, Button, SimpleGrid, Container, Badge, Stack} from '@chakra-ui/react';
+import {Box, VStack, Heading, Text, Button, SimpleGrid, Container, Badge, Stack, Link} from '@chakra-ui/react';
 import {Link as RouterLink, useLocation, useNavigate} from 'react-router-dom';
+import {ExternalLinkIcon} from '@chakra-ui/icons';
 
 const Portfolio = () => {
     const skillList = [
         'JavaScript', 'React', 'HTML/CSS', 'Java', 'JavaFX', 'Python', 'Chakra UI',
-        'SQL', 'MariaDB', 'Bash & GitBash'
+        'SQL', 'MariaDB', 'GitBash'
     ];
 
     const navigate = useNavigate();
@@ -95,7 +96,7 @@ const Portfolio = () => {
                         <Heading
                             as="h2"
                             fontSize="3xl"
-                            mb={8}
+                            mb={12}
                             bgGradient="linear(to-r, #64FFDA, #4299E1)"
                             bgClip="text"
                         >
@@ -117,6 +118,40 @@ const Portfolio = () => {
                                 </Badge>
                             ))}
                         </SimpleGrid>
+                    </Box>
+
+                    <Box w="100%">
+                        <Heading
+                            as="h2"
+                            fontSize="3xl"
+                            mb={12}
+                            bgGradient="linear(to-r, #64FFDA, #4299E1)"
+                            bgClip="text"
+                        >
+                            Social Media
+                        </Heading>
+                        <Stack
+                            direction={{ base: "column", md: "row" }}
+                            spacing={6}
+                            justify="center"
+                            width="100%"
+                        >
+                            <Link href="https://www.linkedin.com/in/lee-charles-98324910b/"
+                                  target="_blank" isExternal color="#64FFDA"
+                            >
+                                <Button
+                                    colorScheme="blue"
+                                    size="lg"
+                                    px={8}
+                                    boxShadow="0 0 15px #4299E1"
+                                    {...glowStyles}
+                                    width={{ base: "full", md: "auto" }}
+                                    paddingRight={6}
+                                >
+                                    LinkedIn <ExternalLinkIcon mx={2} />
+                                </Button>
+                            </Link>
+                        </Stack>
                     </Box>
                 </VStack>
             </Container>
