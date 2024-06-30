@@ -115,6 +115,7 @@ const Projects = () => {
                                 <ListItem>Fast and efficient searches using a pre-built index</ListItem>
                                 <ListItem>Standalone executable packaged with PyInstaller</ListItem>
                                 <ListItem>Professional installer created with Inno Setup</ListItem>
+                                <ListItem>Allows techs to perform tasks without server privileges</ListItem>
                             </UnorderedList>
                         </VStack>
                         <Link href="https://github.com/lee-cha-dev/PublicFoldersIndex"
