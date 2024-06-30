@@ -17,6 +17,7 @@ import {ChevronLeftIcon, ExternalLinkIcon, ChevronUpIcon} from '@chakra-ui/icons
 import ollamaImage from "../images/ollama.png";
 import tscImage from "../images/tsc.png";
 import portfolioImage from "../images/portfolio.png";
+import reformatitImage from "../images/reformatit.png";
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 const Projects = () => {
@@ -125,15 +126,17 @@ const Projects = () => {
                                 <ListItem>Enhanced productivity for IT personnel</ListItem>
                                 <ListItem>Automated index updates</ListItem>
                                 <ListItem>Decreases traffic to the Exchange Server</ListItem>
+                                <ListItem>Allows techs to perform tasks without server privileges</ListItem>
                             </UnorderedList>
                             <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Technical Highlights:
+                                Technologies Used:
                             </Heading>
                             <UnorderedList spacing={2} pl={4}>
-                                <ListItem>Fast and efficient searches using a pre-built index</ListItem>
-                                <ListItem>Standalone executable packaged with PyInstaller</ListItem>
-                                <ListItem>Professional installer created with Inno Setup</ListItem>
-                                <ListItem>Allows techs to perform tasks without server privileges</ListItem>
+                                <ListItem>Python</ListItem>
+                                <ListItem>customtkinter (for GUI)</ListItem>
+                                <ListItem>PyInstaller (for executable packaging)</ListItem>
+                                <ListItem>Inno Setup (for installer creation)</ListItem>
+                                <ListItem>VBA (for automated index updates in Outlook)</ListItem>
                             </UnorderedList>
                         </VStack>
                         <Link href="https://github.com/lee-cha-dev/PublicFoldersIndex"
@@ -151,6 +154,7 @@ const Projects = () => {
                         </Link>
                     </VStack>
 
+                    {/* Ollama starts here */}
                     <Divider my={10} borderColor="whiteAlpha.300" />
 
                     <VStack spacing={8} align="center" maxW="3xl">
@@ -184,14 +188,17 @@ const Projects = () => {
                                 <ListItem>Runs on http://localhost:11434 for LLM hosting</ListItem>
                                 <ListItem>Uses http://localhost:11434/api/generate for response generation</ListItem>
                                 <ListItem>Customizable model selection (default: llama2:13b)</ListItem>
+                                <ListItem>Requires Ollama installation and a downloaded model</ListItem>
                             </UnorderedList>
                             <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Technical Details:
+                                Technologies Used:
                             </Heading>
                             <UnorderedList spacing={2} pl={4}>
-                                <ListItem>Requires Ollama installation and a downloaded model</ListItem>
-                                <ListItem>Custom modification to ctk_button.py from customtinker for specific click behaviors</ListItem>
-                                <ListItem>Utilizes a model_path.py file for configuration</ListItem>
+                                <ListItem>Python</ListItem>
+                                <ListItem>customtkinter (for GUI)</ListItem>
+                                <ListItem>requests (for API communication)</ListItem>
+                                <ListItem>threading (for asynchronous operations)</ListItem>
+                                <ListItem>JSON (for data parsing)</ListItem>
                             </UnorderedList>
                         </VStack>
                         <Link href="https://ollama.com/blog/windows-preview" isExternal color="#64FFDA">
@@ -206,6 +213,68 @@ const Projects = () => {
                             {...blueGlowStyles}
                         >
                             GitHub <ExternalLinkIcon mx="2px" />
+                        </Button>
+                    </Link>
+
+                    <Divider my={10} borderColor="whiteAlpha.300" />
+
+                    {/* ReformatIT Project */}
+                    <VStack spacing={8} align="center" maxW="3xl">
+                        <Heading
+                            as="h2"
+                            fontSize="2xl"
+                            color="#64FFDA"
+                            textAlign="center"
+                        >
+                            ReformatIT
+                        </Heading>
+                        <Text fontSize="lg" textAlign="center">
+                            A full-stack web application for image format conversion, featuring a React and Chakra UI frontend with a Python and FastAPI backend.
+                        </Text>
+                        <Image
+                            src={reformatitImage}
+                            alt="ReformatIT Application Screenshot"
+                            borderRadius="md"
+                            maxWidth="100%"
+                            height="auto"
+                        />
+                        <Text fontSize="lg" textAlign="center">
+                            ReformatIT allows users to upload images and convert them to various formats, providing a seamless and user-friendly interface for image processing tasks.
+                        </Text>
+                        <VStack align="start" spacing={4} width="100%">
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
+                                Key Features:
+                            </Heading>
+                            <UnorderedList spacing={2} pl={4}>
+                                <ListItem>User-friendly image upload interface</ListItem>
+                                <ListItem>Support for multiple image format conversions</ListItem>
+                                <ListItem>Dark mode design for comfortable use</ListItem>
+                                <ListItem>Responsive layout for various device sizes</ListItem>
+                            </UnorderedList>
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
+                                Technologies Used:
+                            </Heading>
+                            <UnorderedList spacing={2} pl={4}>
+                                <ListItem>Frontend: React, Chakra UI</ListItem>
+                                <ListItem>Backend: Python, FastAPI</ListItem>
+                                <ListItem>Image Processing: Pillow (Python Imaging Library)</ListItem>
+                            </UnorderedList>
+                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
+                                Supported Formats:
+                            </Heading>
+                            <Text>
+                                BMP, GIF, HEIF, ICO, IM, JPEG, JPG, PCX, PNG, PPM, SGI, SPIDER, TIFF, WebP
+                            </Text>
+                        </VStack>
+                    </VStack>
+                    <Link href="https://www.reformatit.com" target="_blank" isExternal color="#64FFDA">
+                        <Button
+                            colorScheme="blue"
+                            size="lg"
+                            px={8}
+                            {...blueGlowStyles}
+                        >
+                            ReformatIT<ExternalLinkIcon mx="2px" />
                         </Button>
                     </Link>
 
@@ -265,6 +334,9 @@ const Projects = () => {
                                 GitHub <ExternalLinkIcon mx="2px" />
                             </Button>
                         </Link>
+
+
+
                     </VStack>
                 </VStack>
             </Container>
