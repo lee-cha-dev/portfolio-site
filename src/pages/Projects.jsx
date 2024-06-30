@@ -334,9 +334,6 @@ const Projects = () => {
                                 GitHub <ExternalLinkIcon mx="2px" />
                             </Button>
                         </Link>
-
-
-
                     </VStack>
                 </VStack>
             </Container>

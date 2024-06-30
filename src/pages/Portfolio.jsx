@@ -1,8 +1,7 @@
-import React, {useEffect} from 'react';
-import {Box, VStack, Heading, Text, Button, SimpleGrid, Container, Badge, Stack, Link} from '@chakra-ui/react';
-import {Link as RouterLink, useLocation, useNavigate} from 'react-router-dom';
-import {ExternalLinkIcon} from '@chakra-ui/icons';
-
+import React, { useEffect } from 'react';
+import { Box, VStack, Heading, Text, Button, SimpleGrid, Container, Badge, Stack, Link, useToast } from '@chakra-ui/react';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
+import { ExternalLinkIcon, DownloadIcon } from '@chakra-ui/icons';
 const Portfolio = () => {
     const skillList = [
         'JavaScript', 'React', 'HTML/CSS', 'Java', 'JavaFX', 'Python', 'Chakra UI',
@@ -11,6 +10,7 @@ const Portfolio = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+    const toast = useToast();
 
     const bgGradient = "linear(to-br, #0a192f, #4A0E4E)";
     const textColor = "whiteAlpha.900";
@@ -58,6 +58,60 @@ const Portfolio = () => {
         setTimeout(() => window.scrollTo(0, 0), 100);
     };
 
+    const handleDownloadResume = async () => {
+        const fileName = 'Lee_Charles_Resume.pdf';
+        const fileUrl = ''; // Ensure this path is correct
+
+        try {
+            const response = await fetch(fileUrl);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const contentType = response.headers.get('content-type');
+            console.log('Content-Type:', contentType); // Log the content type
+
+            // Proceed with download even if content-type is not PDF
+            const blob = await response.blob();
+            console.log('Blob type:', blob.type); // Log the blob type
+
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', fileName);
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+            window.URL.revokeObjectURL(url);
+
+            toast({
+                title: "Resume download initiated",
+                description: "If the download doesn't start automatically, please check your downloads folder or try the manual download link.",
+                status: "success",
+                duration: 5000,
+                isClosable: true,
+            });
+        } catch (error) {
+            console.error('Download failed:', error);
+            toast({
+                title: "Download failed",
+                description: (
+                    <VStack align="start">
+                        <Text>{`Error: ${error.message}`}</Text>
+                        <Text>Please try the manual download link below or contact me for a copy.</Text>
+                        <Link href={fileUrl} download={fileName} color="blue.500" isExternal>
+                            Manual Download Link
+                        </Link>
+                    </VStack>
+                ),
+                status: "error",
+                duration: 10000,
+                isClosable: true,
+            });
+        }
+    };
+
     return (
         <Box bgGradient={bgGradient} minHeight="100vh" color={textColor} paddingLeft={4} paddingRight={4} paddingTop={5}>
             <Container maxW="container.xl" py={20}>
@@ -103,14 +157,14 @@ const Portfolio = () => {
                                 View Projects
                             </Button>
                         </RouterLink>
-
                         <Button
                             colorScheme="purple"
                             size="lg"
                             px={8}
-                            boxShadow="0 0 15px #4299E1"
                             {...purpleGlowStyles}
                             width={{ base: "full", md: "auto" }}
+                            leftIcon={<DownloadIcon />}
+                            onClick={handleDownloadResume}
                         >
                             Download Resume
                         </Button>
