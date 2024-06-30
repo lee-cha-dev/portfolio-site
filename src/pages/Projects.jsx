@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Box,
     VStack,
@@ -11,15 +11,16 @@ import {
     UnorderedList,
     ListItem,
     Flex,
-    Divider
+    Divider, IconButton
 } from '@chakra-ui/react';
-import {ChevronLeftIcon, ExternalLinkIcon} from '@chakra-ui/icons';
+import {ChevronLeftIcon, ExternalLinkIcon, ChevronUpIcon} from '@chakra-ui/icons';
 import ollamaImage from "../images/ollama.png";
 import tscImage from "../images/tsc.png";
 import portfolioImage from "../images/portfolio.png";
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 const Projects = () => {
+    const [showScrollButton, setShowScrollButton] = useState(false);
     const bgGradient = "linear(to-br, #0a192f, #4A0E4E)";
     const textColor = "whiteAlpha.900";
     const navigate = useNavigate();
@@ -37,8 +38,21 @@ const Projects = () => {
     };
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        const handleScroll = () => {
+            if (window.pageYOffset > 300) {
+                setShowScrollButton(true);
+            } else {
+                setShowScrollButton(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     const handleBackToHome = () => {
         navigate('/');
@@ -254,6 +268,19 @@ const Projects = () => {
                     </VStack>
                 </VStack>
             </Container>
+            {showScrollButton && (
+                <IconButton
+                    aria-label="Scroll to top"
+                    icon={<ChevronUpIcon />}
+                    size="lg"
+                    position="fixed"
+                    bottom="4"
+                    right="4"
+                    zIndex="tooltip"
+                    onClick={scrollToTop}
+                    {...blueGlowStyles}
+                />
+            )}
         </Box>
     );
 };
