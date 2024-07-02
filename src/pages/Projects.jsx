@@ -19,6 +19,7 @@ import tscImage from "../images/tsc.png";
 import portfolioImage from "../images/portfolio.png";
 import reformatitImage from "../images/reformatit.png";
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import Project from "../components/Project";
 
 const Projects = () => {
     const [showScrollButton, setShowScrollButton] = useState(false);
@@ -92,249 +93,135 @@ const Projects = () => {
                             Projects
                         </Heading>
                     </Flex>
-
-                    {/* TSC: Public Folder Index Project */}
-                    <VStack spacing={8} align="center" maxW="3xl">
-                        <Heading
-                            as="h2"
-                            fontSize="2xl"
-                            color="#64FFDA"
-                            textAlign="center"
-                        >
-                            TSC: Public Folder Index
-                        </Heading>
-                        <Text fontSize="lg" textAlign="center">
-                            A custom-built GUI application designed to streamline the process of querying over 7,800 paths within public folders and 65,000 contact entries in the Exchange server.
-                        </Text>
-                        <Image
-                            src={tscImage}
-                            alt="TSC: Public Folder Index Screenshot"
-                            borderRadius="md"
-                            maxWidth="100%"
-                            height="auto"
-                        />
-                        <Text fontSize="lg" textAlign="center">
-                            This innovative solution transforms a traditionally time-consuming task into an instantaneous operation, completing queries in less than 1 second.
-                        </Text>
-                        <VStack align="start" spacing={4} width="100%">
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Key Features:
-                            </Heading>
-                            <UnorderedList spacing={2} pl={4}>
-                                <ListItem>Instantaneous queries (less than 1-2 seconds)</ListItem>
-                                <ListItem>User-friendly interface built with customtkinter</ListItem>
-                                <ListItem>Enhanced productivity for IT personnel</ListItem>
-                                <ListItem>Automated index updates</ListItem>
-                                <ListItem>Decreases traffic to the Exchange Server</ListItem>
-                                <ListItem>Allows techs to perform tasks without server privileges</ListItem>
-                            </UnorderedList>
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Technologies Used:
-                            </Heading>
-                            <UnorderedList spacing={2} pl={4}>
-                                <ListItem>Python</ListItem>
-                                <ListItem>customtkinter (for GUI)</ListItem>
-                                <ListItem>PyInstaller (for executable packaging)</ListItem>
-                                <ListItem>Inno Setup (for installer creation)</ListItem>
-                                <ListItem>VBA (for automated index updates in Outlook)</ListItem>
-                            </UnorderedList>
-                        </VStack>
-                        <Link href="https://github.com/lee-cha-dev/PublicFoldersIndex"
-                              target="_blank" isExternal color="#64FFDA"
-                              marginTop={8}
-                        >
-                            <Button
-                                colorScheme="blue"
-                                size="lg"
-                                px={8}
-                                {...blueGlowStyles}
-                            >
-                                GitHub <ExternalLinkIcon mx="2px" />
-                            </Button>
-                        </Link>
-                    </VStack>
-
-                    {/* Ollama starts here */}
+                    {/* TSC: Public Folder Index here */}
+                    <Project
+                        keyFeatures={[
+                            "Instantaneous queries (less than 1-2 seconds)",
+                            "User-friendly interface built with customtkinter",
+                            "Enhanced productivity for IT personnel",
+                            "Automated index updates",
+                            "Decreases traffic to the Exchange Server",
+                            "Allows techs to perform tasks without server privileges"
+                        ]}
+                        techUsed={[
+                            "Python",
+                            "customtkinter (for GUI)",
+                            "PyInstaller (for executable packaging)",
+                            "Inno Setup (for installer creation)",
+                            "VBA (for automated index updates in Outlook)"
+                        ]}
+                        projectName="TSC: Public Folder Index"
+                        projectImage={tscImage}
+                        projectDescriptionTop="
+                            A custom-built GUI application designed to streamline the process of
+                            querying over 7,800 paths within public folders and 65,000 contact entries in the Exchange server.
+                        "
+                        projectDescriptionBottom="
+                            This innovative solution transforms a traditionally time-consuming task into an
+                            instantaneous operation, completing queries in less than 1 second.
+                        "
+                        projectLink="https://github.com/lee-cha-dev/PublicFoldersIndex"
+                        projectLinkName="GitHub"
+                        buttonStyle={blueGlowStyles}
+                    />
                     <Divider my={10} borderColor="whiteAlpha.300" />
 
-                    <VStack spacing={8} align="center" maxW="3xl">
-                        <Heading
-                            as="h2"
-                            fontSize="2xl"
-                            color="#64FFDA"
-                            textAlign="center"
-                        >
-                            Ollama Chat App
-                        </Heading>
-                        <Text fontSize="lg" textAlign="center">
+                    {/* Ollama starts here */}
+                    <Project
+                        keyFeatures={[
+                            "Integrates with Ollama's local LLM setup",
+                            "Runs on http://localhost:11434 for LLM hosting",
+                            "Uses http://localhost:11434/api/generate for response generation",
+                            "Customizable model selection (default: llama2:13b)",
+                            "Requires Ollama installation and a downloaded model"
+                        ]}
+                        techUsed={[
+                            "Python",
+                            "customtkinter (for GUI)",
+                            "requests (for API communication)",
+                            "threading (for asynchronous operations)",
+                            "JSON (for data parsing)"
+                        ]}
+                        projectName="Ollama Chat App"
+                        projectImage={ollamaImage}
+                        projectDescriptionTop="
                             A chat interface for Ollama LLMs that can be installed and run locally.
-                        </Text>
-                        <Image
-                            src={ollamaImage}
-                            alt="Ollama Chat App Screenshot"
-                            borderRadius="md"
-                            maxWidth="100%"
-                            height="auto"
-                        />
-                        <Text fontSize="lg" textAlign="center">
-                            This application provides a user-friendly interface for interacting with locally installed Ollama language models. It was developed in a Windows 10 environment using conda.
-                        </Text>
-                        <VStack align="start" spacing={4} width="100%">
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Key Features:
-                            </Heading>
-                            <UnorderedList spacing={2} pl={4}>
-                                <ListItem>Integrates with Ollama's local LLM setup</ListItem>
-                                <ListItem>Runs on http://localhost:11434 for LLM hosting</ListItem>
-                                <ListItem>Uses http://localhost:11434/api/generate for response generation</ListItem>
-                                <ListItem>Customizable model selection (default: llama2:13b)</ListItem>
-                                <ListItem>Requires Ollama installation and a downloaded model</ListItem>
-                            </UnorderedList>
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Technologies Used:
-                            </Heading>
-                            <UnorderedList spacing={2} pl={4}>
-                                <ListItem>Python</ListItem>
-                                <ListItem>customtkinter (for GUI)</ListItem>
-                                <ListItem>requests (for API communication)</ListItem>
-                                <ListItem>threading (for asynchronous operations)</ListItem>
-                                <ListItem>JSON (for data parsing)</ListItem>
-                            </UnorderedList>
-                        </VStack>
-                        <Link href="https://ollama.com/blog/windows-preview" isExternal color="#64FFDA">
-                            Learn more about Ollama Windows Preview <ExternalLinkIcon mx="2px" />
-                        </Link>
-                    </VStack>
-                    <Link href="https://github.com/lee-cha-dev/ollama_chat_app" target="_blank" isExternal color="#64FFDA">
-                        <Button
-                            colorScheme="blue"
-                            size="lg"
-                            px={8}
-                            {...blueGlowStyles}
-                        >
-                            GitHub <ExternalLinkIcon mx="2px" />
-                        </Button>
-                    </Link>
-
+                        "
+                        projectDescriptionBottom="
+                            This application provides a user-friendly interface for interacting with locally installed Ollama language models.
+                            It was developed in a Windows 10 environment using conda.
+                        "
+                        projectLink="https://github.com/lee-cha-dev/ollama_chat_app"
+                        projectLinkName="GitHub"
+                        buttonStyle={blueGlowStyles}
+                        additionalLink={{
+                            url: "https://ollama.com/blog/windows-preview",
+                            text: "Learn more about Ollama Windows Preview"
+                        }}
+                    />
                     <Divider my={10} borderColor="whiteAlpha.300" />
 
                     {/* ReformatIT Project */}
-                    <VStack spacing={8} align="center" maxW="3xl">
-                        <Heading
-                            as="h2"
-                            fontSize="2xl"
-                            color="#64FFDA"
-                            textAlign="center"
-                        >
-                            ReformatIT
-                        </Heading>
-                        <Text fontSize="lg" textAlign="center">
-                            A full-stack web application for image format conversion, featuring a React and Chakra UI frontend with a Python and FastAPI backend.
-                        </Text>
-                        <Image
-                            src={reformatitImage}
-                            alt="ReformatIT Application Screenshot"
-                            borderRadius="md"
-                            maxWidth="100%"
-                            height="auto"
-                        />
-                        <Text fontSize="lg" textAlign="center">
-                            ReformatIT allows users to upload images and convert them to various formats, providing a seamless and user-friendly interface for image processing tasks.
-                        </Text>
-                        <VStack align="start" spacing={4} width="100%">
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Key Features:
-                            </Heading>
-                            <UnorderedList spacing={2} pl={4}>
-                                <ListItem>User-friendly image upload interface</ListItem>
-                                <ListItem>Support for multiple image format conversions</ListItem>
-                                <ListItem>Dark mode design for comfortable use</ListItem>
-                                <ListItem>Responsive layout for various device sizes</ListItem>
-                            </UnorderedList>
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Technologies Used:
-                            </Heading>
-                            <UnorderedList spacing={2} pl={4}>
-                                <ListItem>Frontend: React, Chakra UI</ListItem>
-                                <ListItem>Backend: Python, FastAPI</ListItem>
-                                <ListItem>Image Processing: Pillow (Python Imaging Library)</ListItem>
-                            </UnorderedList>
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Supported Formats:
-                            </Heading>
-                            <Text>
-                                BMP, GIF, HEIF, ICO, IM, JPEG, JPG, PCX, PNG, PPM, SGI, SPIDER, TIFF, WebP
-                            </Text>
-                        </VStack>
-                    </VStack>
-                    <Link href="https://www.reformatit.com" target="_blank" isExternal color="#64FFDA">
-                        <Button
-                            colorScheme="blue"
-                            size="lg"
-                            px={8}
-                            {...blueGlowStyles}
-                        >
-                            ReformatIT<ExternalLinkIcon mx="2px" />
-                        </Button>
-                    </Link>
-
+                    <Project
+                        keyFeatures={[
+                            "User-friendly image upload interface",
+                            "Support for multiple image format conversions",
+                            "Dark mode design for comfortable use",
+                            "Responsive layout for various device sizes"
+                        ]}
+                        techUsed={[
+                            "Frontend: React, Chakra UI",
+                            "Backend: Python, FastAPI",
+                            "Image Processing: Pillow (Python Imaging Library)"
+                        ]}
+                        projectName="ReformatIT"
+                        projectImage={reformatitImage}
+                        projectDescriptionTop="
+                            A full-stack web application for image format conversion, featuring a React and Chakra UI frontend
+                            with a Python and FastAPI backend.
+                        "
+                        projectDescriptionBottom="
+                            ReformatIT allows users to upload images and convert them to various formats, providing a seamless
+                            and user-friendly interface for image processing tasks.
+                        "
+                        projectLink="https://www.reformatit.com"
+                        projectLinkName="ReformatIT"
+                        buttonStyle={blueGlowStyles}
+                        supportedFormats={[
+                            "BMP", "GIF", "HEIF", "ICO", "IM", "JPEG", "JPG", "PCX",
+                            "PNG", "PPM", "SGI", "SPIDER", "TIFF", "WebP"
+                        ]}
+                    />
                     <Divider my={10} borderColor="whiteAlpha.300" />
 
                     {/* Portfolio Site Project */}
-                    <VStack spacing={8} align="center" maxW="3xl">
-                        <Heading
-                            as="h2"
-                            fontSize="2xl"
-                            color="#64FFDA"
-                            textAlign="center"
-                        >
-                            Personal Portfolio Website
-                        </Heading>
-                        <Text fontSize="lg" textAlign="center">
+                    <Project
+                        keyFeatures={[
+                            "Responsive design for all devices",
+                            "Dark mode theme for modern aesthetics",
+                            "Project showcase with detailed descriptions",
+                            "Skills section highlighting technical expertise",
+                            "Smooth navigation and scrolling effects"
+                        ]}
+                        techUsed={[
+                            "React.js for building the UI",
+                            "Chakra UI for styling and components",
+                            "React Router for navigation",
+                            "GitHub Pages for hosting"
+                        ]}
+                        projectName="Personal Portfolio Website"
+                        projectImage={portfolioImage}
+                        projectDescriptionTop="
                             A modern, responsive portfolio website showcasing my projects and skills as a Software Developer and Data Analyst.
-                        </Text>
-                        <Image
-                            src={portfolioImage}
-                            alt="Portfolio Website Screenshot"
-                            borderRadius="md"
-                            maxWidth="100%"
-                            height="auto"
-                        />
-                        <Text fontSize="lg" textAlign="center">
-                            This website serves as a central hub for my professional online presence, featuring a sleek dark mode design and smooth user experience.
-                        </Text>
-                        <VStack align="start" spacing={4} width="100%">
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Key Features:
-                            </Heading>
-                            <UnorderedList spacing={2} pl={4}>
-                                <ListItem>Responsive design for all devices</ListItem>
-                                <ListItem>Dark mode theme for modern aesthetics</ListItem>
-                                <ListItem>Project showcase with detailed descriptions</ListItem>
-                                <ListItem>Skills section highlighting technical expertise</ListItem>
-                                <ListItem>Smooth navigation and scrolling effects</ListItem>
-                            </UnorderedList>
-                            <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                                Technologies Used:
-                            </Heading>
-                            <UnorderedList spacing={2} pl={4}>
-                                <ListItem>React.js for building the UI</ListItem>
-                                <ListItem>Chakra UI for styling and components</ListItem>
-                                <ListItem>React Router for navigation</ListItem>
-                                <ListItem>GitHub Pages for hosting</ListItem>
-                            </UnorderedList>
-                        </VStack>
-                        <Link href="https://github.com/lee-cha-dev/portfolio-site" target="_blank" isExternal color="#64FFDA">
-                            <Button
-                                colorScheme="blue"
-                                size="lg"
-                                px={8}
-                                {...blueGlowStyles}
-                            >
-                                GitHub <ExternalLinkIcon mx="2px" />
-                            </Button>
-                        </Link>
-                    </VStack>
+                        "
+                        projectDescriptionBottom="
+                            This website serves as a central hub for my professional online presence, featuring a sleek dark mode design
+                            and smooth user experience.
+                        "
+                        projectLink="https://github.com/lee-cha-dev/portfolio-site"
+                        projectLinkName="GitHub"
+                        buttonStyle={blueGlowStyles}
+                    />
                 </VStack>
             </Container>
             {showScrollButton && (
