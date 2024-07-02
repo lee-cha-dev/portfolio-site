@@ -1,5 +1,5 @@
 import React from 'react';
-import {Badge, Button, Heading, Image, Link, ListItem, Text, UnorderedList, VStack} from "@chakra-ui/react";
+import {Button, Heading, Image, Link, ListItem, Text, UnorderedList, VStack} from "@chakra-ui/react";
 import {ExternalLinkIcon} from "@chakra-ui/icons";
 
 const Project = (props) => {

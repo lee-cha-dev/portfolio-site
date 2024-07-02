@@ -6,20 +6,23 @@ import theme from "./theme";
 import Projects from "./pages/Projects";
 
 function App() {
-  return (
-      <ChakraProvider theme={theme}>
-          <BrowserRouter>
-              <div className="App">
-                  <div className="App-content">
-                      <Routes>
-                          <Route path="/" element={<Portfolio />} />
-                          <Route path="/projects" element={<Projects />} />
-                      </Routes>
-                  </div>
-              </div>
-          </BrowserRouter>
-      </ChakraProvider>
-  );
+    // This will be '/' in development and '/portfolio-site' in production if deployed to GitHub Pages
+    const basename = process.env.PUBLIC_URL;
+
+    return (
+        <ChakraProvider theme={theme}>
+            <BrowserRouter basename={basename}>
+                <div className="App">
+                    <div className="App-content">
+                        <Routes>
+                            <Route path="/" element={<Portfolio />} />
+                            <Route path="/projects" element={<Projects />} />
+                        </Routes>
+                    </div>
+                </div>
+            </BrowserRouter>
+        </ChakraProvider>
+    );
 }
 
 export default App;
