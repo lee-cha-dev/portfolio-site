@@ -64,7 +64,7 @@ const Projects = () => {
     return (
         <Box bgGradient={bgGradient} minHeight="100vh" color={textColor} paddingBottom={8} overflow="hidden">
 
-            <Box position="absolute" top="4" left="1" zIndex="10">
+            <Box position="absolute" top="4" left="4" zIndex="10">
                 <RouterLink to="/">
                     <Button
                         leftIcon={<ChevronLeftIcon />}
@@ -185,12 +185,16 @@ const Projects = () => {
                             and user-friendly interface for image processing tasks.
                         "
                         projectLink="https://www.reformatit.com"
-                        projectLinkName="ReformatIT"
+                        projectLinkName="Front End Github"
                         buttonStyle={blueGlowStyles}
                         supportedFormats={[
                             "BMP", "GIF", "HEIF", "ICO", "IM", "JPEG", "JPG", "PCX",
                             "PNG", "PPM", "SGI", "SPIDER", "TIFF", "WebP"
                         ]}
+                        additionalLink={{
+                            url: "https://github.com/lee-cha-dev/reformatit-backend",
+                            text: "Back End Github"
+                        }}
                     />
                     <Divider my={10} borderColor="whiteAlpha.300" />
 
