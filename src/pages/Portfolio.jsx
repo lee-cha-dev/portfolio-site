@@ -122,7 +122,7 @@ const Portfolio = () => {
                             Lee Charles
                         </Heading>
                         <Text fontSize="2xl" fontWeight="bold" color="whiteAlpha.800">
-                            Software Developer & Data Analyst
+                            IT Professional & Data Analyst
                         </Text>
                     </Box>
 
