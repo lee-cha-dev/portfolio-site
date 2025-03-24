@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Box, VStack, Heading, Text, Button, SimpleGrid, Container, Badge, Stack, Link, useToast } from '@chakra-ui/react';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { ExternalLinkIcon, DownloadIcon } from '@chakra-ui/icons';
+
 const Portfolio = () => {
     const skillList = [
         'JavaScript', 'React', 'HTML/CSS', 'Java', 'JavaFX', 'Python', 'Chakra UI',
@@ -122,7 +123,7 @@ const Portfolio = () => {
                             Lee Charles
                         </Heading>
                         <Text fontSize="2xl" fontWeight="bold" color="whiteAlpha.800">
-                            IT Professional & Data Analyst
+                            Software Developer & Data Analyst
                         </Text>
                     </Box>
 
