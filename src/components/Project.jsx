@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Code, Heading, Image, Link, ListItem, Text, UnorderedList, VStack} from "@chakra-ui/react";
+import {Button, Heading, Image, Link, ListItem, Text, UnorderedList, VStack} from "@chakra-ui/react";
 import {ExternalLinkIcon} from "@chakra-ui/icons";
 
 const Project = (props) => {
@@ -100,13 +100,13 @@ const Project = (props) => {
                         px={8}
                         {...props.buttonStyle}
                     >
-                        {props.projectLinkName} <ExternalLinkIcon mx="2px" />
+                        {props.projectLinkName} <ExternalLinkIcon mx="2px"/>
                     </Button>
                 </Link>
             )}
             {props.additionalLink && (
                 <Link href={props.additionalLink.url} isExternal color="#64FFDA">
-                    {props.additionalLink.text} <ExternalLinkIcon mx="2px" />
+                    {props.additionalLink.text} <ExternalLinkIcon mx="2px"/>
                 </Link>
             )}
         </VStack>

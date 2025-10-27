@@ -3,17 +3,12 @@ import {
     Box,
     VStack,
     Heading,
-    Text,
     Button,
     Container,
-    Image,
-    Link,
-    UnorderedList,
-    ListItem,
     Flex,
     Divider, IconButton
 } from '@chakra-ui/react';
-import {ChevronLeftIcon, ExternalLinkIcon, ChevronUpIcon} from '@chakra-ui/icons';
+import {ChevronLeftIcon, ChevronUpIcon} from '@chakra-ui/icons';
 import ollamaImage from "../images/ollama.png";
 import tscImage from "../images/tsc.png";
 import portfolioImage from "../images/portfolio.png";
@@ -131,9 +126,9 @@ const Projects = () => {
                             for maintainability and reusability.
                         "
                         projectDescriptionBottom="
-                        This component replaced KendoUI dependencies and became the standard data presentation
-                        layer for Daily Traffic Light, AMI Hourly, and OMS modules. Features responsive design,
-                        conditional row coloring, and advanced pagination.
+                            This component replaced KendoUI dependencies and became the standard data presentation
+                            layer for Daily Traffic Light, AMI Hourly, and OMS modules. Features responsive design,
+                            conditional row coloring, and advanced pagination.
                         "
                         context="Standardize data presentation across FECC analytics to remove Kendo dependency and unify UX."
                         implementation="Custom grid with multi-operator filters, tri-state sort, drag-reorder, inline edit with batch save/cancel, grouping, export, and dark/light theming."
@@ -167,13 +162,13 @@ const Projects = () => {
                         ]}
                         projectName="Daily Traffic Light Dashboard"
                         projectDescriptionTop="
-                        A centralized operations monitoring dashboard providing at-a-glance status overview
-                        for over 80 daily reports across MIS, Member Services, and Tax/CIS auditing departments.
+                            A centralized operations monitoring dashboard providing at-a-glance status overview
+                            for over 80 daily reports across MIS, Member Services, and Tax/CIS auditing departments.
                         "
                         projectDescriptionBottom="
-                        The system uses lightweight backend endpoints that execute COUNT(*) queries rather than
-                        fetching full datasets, ensuring sub-second response times. Server-side logic analyzes
-                        multiple data points for complex reports.
+                            The system uses lightweight backend endpoints that execute COUNT(*) queries rather than
+                            fetching full datasets, ensuring sub-second response times. Server-side logic analyzes
+                            multiple data points for complex reports.
                         "
                         context="Give leadership and analysts an instant, unified view of report health without loading full datasets."
                         implementation="Ultra-light COUNT(*) endpoints via Spring Boot against Oracle; React grid handles search, filter, thresholds, and drill-through."
@@ -207,12 +202,12 @@ const Projects = () => {
                         ]}
                         projectName="AMI Hourly Meter Data Dashboard"
                         projectDescriptionTop="
-                        An engineering analytics interface for Aclara AMI data, providing comprehensive analysis
-                        of hourly energy consumption with solar capacity enrichment and anomaly visibility.
+                            An engineering analytics interface for Aclara AMI data, providing comprehensive analysis
+                            of hourly energy consumption with solar capacity enrichment and anomaly visibility.
                         "
                         projectDescriptionBottom="
-                        Features backend federation across Oracle/Postgres, derived KPIs, conversion-ratio logic,
-                        and 24-hour CTE aggregations. Visualizes trends with React + Recharts for rapid insights.
+                            Features backend federation across Oracle/Postgres, derived KPIs, conversion-ratio logic,
+                            and 24-hour CTE aggregations. Visualizes trends with React + Recharts for rapid insights.
                         "
                         context="Deliver hourly consumption analytics with solar enrichment and anomaly visibility across AMI."
                         implementation="Federated reads across Oracle/Postgres; derived KPIs and ratio validation; React + Recharts visualization; 24-hour CTE aggregations."
@@ -245,12 +240,12 @@ const Projects = () => {
                         ]}
                         projectName="OMS Model Management"
                         projectDescriptionTop="
-                        A full-stack workflow for managing complex Outage Model System (OMS) data, enabling
-                        engineering staff to upload, validate, and manage massive .std model files asynchronously.
+                            A full-stack workflow for managing complex Outage Model System (OMS) data, enabling
+                            engineering staff to upload, validate, and manage massive .std model files asynchronously.
                         "
                         projectDescriptionBottom="
-                        Uses CompletableFuture for non-blocking background processing with detailed error reporting.
-                        Handles transactional purges, comprehensive parsing across repositories, and role-gated access.
+                            Uses CompletableFuture for non-blocking background processing with detailed error reporting.
+                            Handles transactional purges, comprehensive parsing across repositories, and role-gated access.
                         "
                         context="Streamline ingestion and maintenance of OMS .std models for Operations."
                         implementation="Asynchronous .std parsing with real-time status; transactional purge-before-ingest; role-gated edits; tabbed views across 10+ repositories."
@@ -283,12 +278,12 @@ const Projects = () => {
                         ]}
                         projectName="MIS Deposit Review Automation"
                         projectDescriptionTop="
-                        An automation module for processing and archiving Additional Deposit and Warning Letter PDFs,
-                        converting them to imaging-compliant TIFF format with extracted metadata.
+                            An automation module for processing and archiving Additional Deposit and Warning Letter PDFs,
+                            converting them to imaging-compliant TIFF format with extracted metadata.
                         "
                         projectDescriptionBottom="
-                        Replaced manual PDF conversion workflows with high-throughput parallel processing. Includes
-                        robust error handling, file lifecycle management, and externalized Spring Boot configuration.
+                            Replaced manual PDF conversion workflows with high-throughput parallel processing. Includes
+                            robust error handling, file lifecycle management, and externalized Spring Boot configuration.
                         "
                         context="Automate imaging workflows for Additional Deposit and Warning Letter PDFs."
                         implementation="Parallel PDF→TIFF @300 DPI using PDFBox; metadata extraction; dual queues; ZIP packaging; robust error handling and cleanup."
@@ -313,6 +308,51 @@ const Projects = () => {
                     >
                         Personal Projects
                     </Heading>
+
+                    {/* DevTracker here */}
+                    <Project
+                        keyFeatures={[
+                            "Local-first, offline-capable desktop application built with Electron",
+                            "React-based multi-view interface: Dashboard, Projects list, and Individual Project view",
+                            "Full CRUD for projects, tasks, and notes (modals for add/edit/delete)",
+                            "Dynamic filtering and sorting of projects and tasks by status, priority, and creation date",
+                            "File attachment management with upload, download, delete, and reveal-in-folder",
+                            "Aggregated project statistics (active, completed, overdue) via SQLite queries",
+                            "Secure preload bridge exposing window.db and window.files APIs to frontend"
+                        ]}
+                        techUsed={[
+                            "Frontend: React (Hooks), Lucide React, Vite",
+                            "Backend: Electron (Main Process), Node.js",
+                            "Database: SQLite (better-sqlite3)",
+                            "Bridge: Electron contextBridge + ipcMain/ipcRenderer",
+                            "Build Tool: Vite"
+                        ]}
+                        projectName="DevTracker"
+                        projectDescriptionTop="
+                            DevTracker is a local-first, offline-capable desktop project management
+                            application built for developers. It provides a simple, fast, and private
+                            way to manage projects, tasks, notes, and files, ensuring full data
+                            ownership and offline functionality.
+                        "
+                        projectDescriptionBottom="
+                            The application runs as a standalone Electron app with a React frontend
+                            and local SQLite database. A secure preload bridge connects the frontend
+                            to backend logic, allowing full CRUD operations, file management, and
+                            statistical aggregation—all stored locally for maximum privacy.
+                        "
+                        context="Provide a developer-focused project management tool that works completely offline and ensures full data ownership."
+                        implementation="Built with Electron and React; uses better-sqlite3 for local persistence, secure contextBridge APIs, and a unified state-driven React UI."
+                        impact="Offers a self-contained alternative to online PM tools; allows full local management of projects, tasks, and files without third-party dependencies."
+                        notes={[
+                            "Dashboard aggregates project statistics in real-time from SQLite.",
+                            "ProjectDashboard.jsx handles all views, modals, and local state.",
+                            "index.cjs preload script safely exposes backend APIs to React."
+                        ]}
+                        complianceNote="All data and storage are local to the user’s machine. No network connectivity or external APIs are required."
+                        projectLink="https://github.com/lee-cha-dev/dev-tracker"
+                        projectLinkName="GitHub"
+                        buttonStyle={blueGlowStyles}
+                    />
 
                     {/* TSC: Public Folder Index here */}
                     <Project
