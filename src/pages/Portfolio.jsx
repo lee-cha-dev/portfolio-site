@@ -5,8 +5,9 @@ import { ExternalLinkIcon, DownloadIcon } from '@chakra-ui/icons';
 
 const Portfolio = () => {
     const skillList = [
-        'JavaScript', 'React', 'HTML/CSS', 'Java', 'JavaFX', 'Python', 'Chakra UI',
-        'SQL', 'MariaDB', 'GitBash'
+        'JavaScript', 'React', 'HTML/CSS', 'Java', 'Spring Boot', 'JavaFX',
+        'Python', 'Chakra UI', 'SQL', 'Oracle', 'PostgreSQL', 'MariaDB',
+        'Docker', 'Nginx', 'Git', 'Recharts', 'PDFBox'
     ];
 
     const navigate = useNavigate();
@@ -60,8 +61,8 @@ const Portfolio = () => {
     };
 
     const handleDownloadResume = async () => {
-        const fileName = 'Lee_Charles_Resume.pdf';
-        const fileUrl = 'https://raw.githubusercontent.com/lee-cha-dev/portfolio-site/master/src/data/resume_dev_2024.pdf';
+        const fileName = 'LeeCharlesSoftwareEngineerResume.pdf';
+        const fileUrl = 'https://raw.githubusercontent.com/lee-cha-dev/portfolio-site/master/src/data/LeeCharlesSoftwareEngineer.pdf';
 
         try {
             const response = await fetch(fileUrl);
@@ -123,14 +124,14 @@ const Portfolio = () => {
                             Lee Charles
                         </Heading>
                         <Text fontSize="2xl" fontWeight="bold" color="whiteAlpha.800">
-                            Software Developer & Data Analyst
+                            Software Developer
                         </Text>
                     </Box>
 
                     <Text fontSize="xl" maxW="3xl" color="whiteAlpha.800">
-                        Graduate student pursuing a Master's in Data Analytics, with a strong foundation in Information
-                        Technology and Software Development, holding a Bachelor's degree in Information Technology with
-                        a minor in Software Development.
+                        Software Developer at First Electric Cooperative Corp, building full-stack analytics and data
+                        engineering solutions with React and Spring Boot. Bachelor's degree in Information Technology
+                        with a minor in Software Development.
                     </Text>
 
                     <Stack
