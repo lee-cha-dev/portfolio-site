@@ -13,6 +13,12 @@ import ollamaImage from "../images/ollama.png";
 import tscImage from "../images/tsc.png";
 import portfolioImage from "../images/portfolio.png";
 import reformatitImage from "../images/reformatit.png";
+import amiHourlyImage from "../images/AMIHourly.png";
+import devTrackerImage from "../images/DevTracker.jpg";
+import depositReviewImage from "../images/DepositFile.png";
+import omsUploadImage from "../images/OMSUpload.png";
+import trafficLightImage from "../images/TrafficLight.png";
+import gridDefinitionImage from "../images/GridDefinition.png";
 import {Link as RouterLink, useNavigate} from 'react-router-dom';
 import Project from "../components/Project";
 
@@ -118,6 +124,7 @@ const Projects = () => {
                             "CSS3 (Custom properties, Flexbox, Grid)",
                             "SheetJS (XLSX export)"
                         ]}
+                        projectImage={gridDefinitionImage}
                         projectName="Analytics GridDefinition"
                         projectDescriptionTop=
                         "
@@ -160,6 +167,7 @@ const Projects = () => {
                             "Database: Oracle",
                             "Security: Spring Security with SAML2"
                         ]}
+                        projectImage={trafficLightImage}
                         projectName="Daily Traffic Light Dashboard"
                         projectDescriptionTop="
                             A centralized operations monitoring dashboard providing at-a-glance status overview
@@ -200,6 +208,7 @@ const Projects = () => {
                             "Databases: Oracle (Aclara/CIS), PostgreSQL",
                             "Security: Spring Security with SAML2"
                         ]}
+                        projectImage={amiHourlyImage}
                         projectName="AMI Hourly Meter Data Dashboard"
                         projectDescriptionTop="
                             An engineering analytics interface for Aclara AMI data, providing comprehensive analysis
@@ -238,6 +247,7 @@ const Projects = () => {
                             "Backend: Java, Spring Boot, CompletableFuture (async)",
                             "Spring Data JPA, SLF4J logging"
                         ]}
+                        projectImage={omsUploadImage}
                         projectName="OMS Model Management"
                         projectDescriptionTop="
                             A full-stack workflow for managing complex Outage Model System (OMS) data, enabling
@@ -276,6 +286,7 @@ const Projects = () => {
                             "Backend: Java, Spring Boot, Apache PDFBox",
                             "Multi-threading: ExecutorService, CompletableFuture"
                         ]}
+                        projectImage={depositReviewImage}
                         projectName="MIS Deposit Review Automation"
                         projectDescriptionTop="
                             An automation module for processing and archiving Additional Deposit and Warning Letter PDFs,
@@ -327,6 +338,7 @@ const Projects = () => {
                             "Bridge: Electron contextBridge + ipcMain/ipcRenderer",
                             "Build Tool: Vite"
                         ]}
+                        projectImage={devTrackerImage}
                         projectName="DevTracker"
                         projectDescriptionTop="
                             DevTracker is a local-first, offline-capable desktop project management
