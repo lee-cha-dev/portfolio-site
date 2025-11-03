@@ -26,48 +26,87 @@ const Project = (props) => {
             <Text fontSize="lg" textAlign="center">
                 {props.projectDescriptionBottom}
             </Text>
+
             <VStack align="start" spacing={4} width="100%">
-                <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                    Key Features:
-                </Heading>
+
+                {/* --- Micro-case study block (all optional) --- */}
+                {props.context && (
+                    <>
+                        <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">Context</Heading>
+                        <Text>{props.context}</Text>
+                    </>
+                )}
+
+                {props.implementation && (
+                    <>
+                        <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">Implementation</Heading>
+                        <Text>{props.implementation}</Text>
+                    </>
+                )}
+
+                {props.impact && (
+                    <>
+                        <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">Impact</Heading>
+                        <Text>{props.impact}</Text>
+                    </>
+                )}
+
+                {/* --- Existing sections remain unchanged --- */}
+                <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">Key Features:</Heading>
                 <UnorderedList spacing={2} pl={4}>
                     {props.keyFeatures.map((feature, index) => (
                         <ListItem key={index}>{feature}</ListItem>
                     ))}
                 </UnorderedList>
-                <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                    Technologies Used:
-                </Heading>
+
+                <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">Technologies Used:</Heading>
                 <UnorderedList spacing={2} pl={4}>
                     {props.techUsed.map((tech, index) => (
                         <ListItem key={index}>{tech}</ListItem>
                     ))}
                 </UnorderedList>
+
                 {props.supportedFormats && (
                     <>
-                        <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">
-                            Supported Formats:
-                        </Heading>
+                        <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">Supported Formats:</Heading>
                         <Text>{props.supportedFormats.join(', ')}</Text>
                     </>
                 )}
+
+                {/* --- Notes (array) --- */}
+                {props.notes && props.notes.length > 0 && (
+                    <>
+                        <Heading as="h3" fontSize="xl" color="#B794F4" alignSelf="left">Notes</Heading>
+                        <UnorderedList spacing={2} pl={4}>
+                            {props.notes.map((n, i) => <ListItem key={i}>{n}</ListItem>)}
+                        </UnorderedList>
+                    </>
+                )}
+
+                {/* --- Compliance note (small print) --- */}
+                {props.complianceNote && (
+                    <Text fontSize="sm" color="whiteAlpha.700">{props.complianceNote}</Text>
+                )}
             </VStack>
-            <Link href={props.projectLink}
-                  target="_blank" isExternal color="#64FFDA"
-                  marginTop={8}
-            >
-                <Button
-                    colorScheme="blue"
-                    size="lg"
-                    px={8}
-                    {...props.buttonStyle}
+
+            {props.projectLink && (
+                <Link href={props.projectLink}
+                      target="_blank" isExternal color="#64FFDA"
+                      marginTop={8}
                 >
-                    {props.projectLinkName} <ExternalLinkIcon mx="2px" />
-                </Button>
-            </Link>
+                    <Button
+                        colorScheme="blue"
+                        size="lg"
+                        px={8}
+                        {...props.buttonStyle}
+                    >
+                        {props.projectLinkName} <ExternalLinkIcon mx="2px"/>
+                    </Button>
+                </Link>
+            )}
             {props.additionalLink && (
                 <Link href={props.additionalLink.url} isExternal color="#64FFDA">
-                    {props.additionalLink.text} <ExternalLinkIcon mx="2px" />
+                    {props.additionalLink.text} <ExternalLinkIcon mx="2px"/>
                 </Link>
             )}
         </VStack>
