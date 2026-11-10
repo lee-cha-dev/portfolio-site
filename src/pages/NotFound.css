@@ -1,0 +1,52 @@
+.not-found {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-block: calc(var(--nav-height) + 2rem) 4rem;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.not-found__scene {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(50% 45% at 50% 50%, var(--c-violet-dim), transparent 75%);
+}
+
+.not-found__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.not-found__code {
+    margin-block: 0.5rem 1rem;
+    font-size: clamp(7rem, 30vw, 20rem);
+    font-weight: 800;
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    /* Stroke painted under an ink fill, so overlapping glyph contours stay hidden. */
+    color: var(--c-bg);
+    paint-order: stroke fill;
+    -webkit-text-stroke: 4px var(--c-volt);
+    text-shadow: 0 0 80px rgba(198, 255, 61, 0.35);
+}
+
+.not-found__lead {
+    max-width: 28rem;
+    font-size: var(--fs-lead);
+    color: var(--c-text-muted);
+    text-shadow: 0 0 24px var(--c-bg), 0 0 8px var(--c-bg);
+}
+
+.not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2.25rem;
+}

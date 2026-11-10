@@ -1,0 +1,135 @@
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: calc(var(--nav-height) + 2rem);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* The gradients are what you see if WebGL is unavailable. */
+.hero__scene {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        radial-gradient(45% 55% at 75% 40%, rgba(124, 92, 255, 0.28), transparent 70%),
+        radial-gradient(30% 35% at 85% 65%, rgba(198, 255, 61, 0.1), transparent 70%);
+}
+
+.hero__content {
+    padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* ---------- Role ---------- */
+
+.hero__role {
+    margin-bottom: clamp(0.9rem, 1.8vw, 1.4rem);
+    font-size: var(--fs-lead);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--c-text-muted);
+    animation: hero-fade var(--dur-slow) var(--ease-out) 150ms both;
+}
+
+/* ---------- Title ---------- */
+
+.hero__title {
+    font-size: var(--fs-display);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    text-wrap: nowrap;
+}
+
+/* Each line is a mask; the text slides up from behind it. */
+.hero__line {
+    display: block;
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
+    overflow: hidden;
+}
+
+.hero__line-text {
+    display: inline-block;
+    animation: hero-rise 1.3s var(--ease-out) both;
+}
+
+.hero__line:nth-child(1) .hero__line-text {
+    animation-delay: 200ms;
+}
+
+.hero__line:nth-child(2) .hero__line-text {
+    animation-delay: 300ms;
+}
+
+.hero__line:nth-child(3) .hero__line-text {
+    animation-delay: 400ms;
+}
+
+/* ---------- Lead + actions ---------- */
+
+.hero__body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.75rem 3rem;
+    margin-top: clamp(1.75rem, 4vw, 3rem);
+    animation: hero-fade var(--dur-slow) var(--ease-out) 750ms both;
+}
+
+.hero__lead {
+    max-width: 34rem;
+    font-size: var(--fs-lead);
+    line-height: 1.55;
+    color: var(--c-text-muted);
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+@media (max-width: 35.99em) {
+    .hero__actions,
+    .hero__actions .button {
+        width: 100%;
+    }
+}
+
+/* ---------- Facts strip ---------- */
+
+.hero__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem clamp(2rem, 6vw, 5rem);
+    padding-block: 1.4rem;
+    border-top: 1px solid var(--c-line);
+    font-size: var(--fs-small);
+    animation: hero-fade var(--dur-slow) var(--ease-out) 950ms both;
+}
+
+.hero__fact dt {
+    margin-bottom: 0.3rem;
+    color: var(--c-text-dim);
+}
+
+/* ---------- Keyframes ---------- */
+
+@keyframes hero-rise {
+    from {
+        transform: translateY(110%) rotate(4deg);
+    }
+}
+
+@keyframes hero-fade {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+}

@@ -1,0 +1,59 @@
+/* Design tokens. Every colour, size, and timing in the site resolves to one of these. */
+:root {
+    color-scheme: dark;
+
+    /* Colour */
+    --c-bg: #06060a;
+    --c-bg-raised: #0b0b12;
+    --c-surface: #11111a;
+    --c-surface-hi: #191926;
+    --c-line: rgba(236, 234, 255, 0.1);
+    --c-line-strong: rgba(236, 234, 255, 0.22);
+    --c-text: #f2f0fa;
+    --c-text-muted: #a9a7bc;
+    --c-text-dim: #7c7a90;
+    --c-volt: #c6ff3d;
+    --c-volt-dim: rgba(198, 255, 61, 0.14);
+    --c-on-volt: #0b1000;
+    --c-violet: #7c5cff;
+    --c-violet-dim: rgba(124, 92, 255, 0.18);
+    --c-ion: #38e8ff;
+
+    /* Type */
+    --font-display: 'Bricolage Grotesque Variable', 'Arial Narrow', system-ui, sans-serif;
+    --font-body: 'Geist Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'Geist Mono Variable', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+    --fs-display: clamp(2.9rem, 8.7vw, 8.75rem);
+    --fs-h1: clamp(2.6rem, 8vw, 6.5rem);
+    --fs-h2: clamp(2.1rem, 5.6vw, 4.5rem);
+    --fs-h3: clamp(1.3rem, 2.2vw, 1.75rem);
+    --fs-lead: clamp(1.06rem, 1.45vw, 1.3rem);
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+    --fs-label: 0.8125rem;
+
+    /* Space */
+    --gutter: clamp(1.25rem, 4vw, 3.5rem);
+    --container: 84rem;
+    --section-gap: clamp(6rem, 13vw, 11rem);
+    --nav-height: 4.75rem;
+
+    /* Shape */
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+    --radius-pill: 999px;
+
+    /* Motion */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --dur-fast: 180ms;
+    --dur: 420ms;
+    --dur-slow: 950ms;
+
+    /* Layers */
+    --z-nav: 50;
+    --z-grain: 60;
+    --z-skip-link: 70;
+}

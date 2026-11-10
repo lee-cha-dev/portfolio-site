@@ -1,0 +1,76 @@
+.button {
+    --button-bg: transparent;
+    --button-fg: var(--c-text);
+    --button-border: transparent;
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.5rem;
+    border: 1px solid var(--button-border);
+    border-radius: var(--radius-pill);
+    background-color: var(--button-bg);
+    color: var(--button-fg);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.005em;
+    white-space: nowrap;
+    cursor: pointer;
+    transform: translate(var(--magnet-x, 0), var(--magnet-y, 0));
+    transition:
+        transform var(--dur) var(--ease-out),
+        background-color var(--dur-fast) ease,
+        border-color var(--dur-fast) ease,
+        color var(--dur-fast) ease,
+        box-shadow var(--dur) var(--ease-out);
+}
+
+.button:active {
+    transform: translate(var(--magnet-x, 0), var(--magnet-y, 0)) scale(0.97);
+}
+
+.button__icon {
+    display: inline-flex;
+    font-size: 1.1em;
+    transition: transform var(--dur) var(--ease-out);
+}
+
+.button:hover .button__icon {
+    transform: translateX(3px);
+}
+
+.button--primary {
+    --button-bg: var(--c-volt);
+    --button-fg: var(--c-on-volt);
+}
+
+.button--primary:hover {
+    box-shadow:
+        0 0 0 4px var(--c-volt-dim),
+        0 10px 40px -8px rgba(198, 255, 61, 0.55);
+}
+
+.button--outline {
+    --button-bg: rgba(6, 6, 10, 0.35);
+    --button-border: var(--c-line-strong);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.button--outline:hover {
+    --button-bg: var(--c-volt-dim);
+    --button-border: var(--c-volt);
+    --button-fg: var(--c-volt);
+}
+
+.button--ghost {
+    padding-inline: 0.25rem;
+    border-radius: 6px;
+}
+
+.button--ghost:hover {
+    --button-fg: var(--c-volt);
+}

@@ -1,0 +1,38 @@
+.section-header {
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+.section-header__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-header__index {
+    color: var(--c-volt);
+}
+
+.section-header__rule {
+    width: 2.5rem;
+    height: 1px;
+    background-color: var(--c-line-strong);
+}
+
+.section-header__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem 3rem;
+}
+
+.section-header__title {
+    max-width: 16ch;
+    font-size: var(--fs-h2);
+}
+
+.section-header__aside {
+    max-width: 26rem;
+    color: var(--c-text-muted);
+}
