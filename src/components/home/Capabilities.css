@@ -1,0 +1,109 @@
+.capabilities__grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 40em) {
+    .capabilities__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 64em) {
+    .capabilities__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.capability {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 20rem;
+    padding: clamp(1.4rem, 2.5vw, 2rem);
+    border: 1px solid var(--c-line);
+    border-radius: var(--radius-lg);
+    background-color: var(--c-bg-raised);
+    overflow: hidden;
+    isolation: isolate;
+    transition-property: opacity, transform, border-color;
+}
+
+/* Pointer-following glow; coordinates come from useSpotlight. */
+.capability::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+        22rem circle at var(--spot-x, 50%) var(--spot-y, 0%),
+        rgba(124, 92, 255, 0.2),
+        transparent 65%
+    );
+    opacity: 0;
+    transition: opacity var(--dur) ease;
+}
+
+.capability:hover {
+    border-color: var(--c-line-strong);
+}
+
+.capability:hover::before {
+    opacity: 1;
+}
+
+.capability__index {
+    color: var(--c-text-dim);
+}
+
+.capability__title {
+    margin-top: clamp(2rem, 4vw, 3.25rem);
+    font-size: var(--fs-h3);
+}
+
+.capability__blurb {
+    margin-top: 0.6rem;
+    color: var(--c-text-muted);
+}
+
+.capability__items {
+    margin-top: auto;
+    padding-top: 1.75rem;
+}
+
+.capability .tag {
+    background-color: rgba(6, 6, 10, 0.4);
+}
+
+/* ---------- Accent card ---------- */
+
+.capability--accent {
+    border-color: rgba(198, 255, 61, 0.35);
+    background-image: radial-gradient(
+        120% 80% at 100% 0%,
+        rgba(198, 255, 61, 0.13),
+        transparent 60%
+    );
+}
+
+.capability--accent::before {
+    background: radial-gradient(
+        22rem circle at var(--spot-x, 50%) var(--spot-y, 0%),
+        rgba(198, 255, 61, 0.16),
+        transparent 65%
+    );
+}
+
+.capability--accent:hover {
+    border-color: var(--c-volt);
+}
+
+.capability--accent .capability__index,
+.capability--accent .capability__title {
+    color: var(--c-volt);
+}
+
+.capability--accent .tag {
+    border-color: rgba(198, 255, 61, 0.3);
+    color: var(--c-text);
+}

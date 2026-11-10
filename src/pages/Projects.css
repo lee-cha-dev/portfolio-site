@@ -1,0 +1,86 @@
+.projects {
+    padding-top: calc(var(--nav-height) + clamp(3rem, 8vw, 6rem));
+    padding-bottom: var(--section-gap);
+}
+
+.projects__header {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.projects__title {
+    font-size: var(--fs-display);
+    font-weight: 800;
+    line-height: 0.85;
+    letter-spacing: -0.055em;
+}
+
+.projects__lead {
+    max-width: 36rem;
+    margin-top: 0.5rem;
+    font-size: var(--fs-lead);
+    color: var(--c-text-muted);
+}
+
+/* ---------- Filters ---------- */
+
+.projects__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2.5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--c-line);
+}
+
+.projects__filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.7rem 0.6rem 1.1rem;
+    border: 1px solid var(--c-line-strong);
+    border-radius: var(--radius-pill);
+    font-size: 0.925rem;
+    font-weight: 500;
+    color: var(--c-text-muted);
+    transition:
+        background-color var(--dur-fast) ease,
+        border-color var(--dur-fast) ease,
+        color var(--dur-fast) ease;
+}
+
+.projects__filter:hover {
+    border-color: var(--c-text);
+    color: var(--c-text);
+}
+
+.projects__filter--active,
+.projects__filter--active:hover {
+    border-color: var(--c-volt);
+    background-color: var(--c-volt);
+    color: var(--c-on-volt);
+}
+
+.projects__count {
+    display: grid;
+    place-items: center;
+    min-width: 1.6rem;
+    height: 1.6rem;
+    padding-inline: 0.4rem;
+    border-radius: var(--radius-pill);
+    background-color: rgba(236, 234, 255, 0.1);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+}
+
+.projects__filter--active .projects__count {
+    background-color: rgba(11, 16, 0, 0.16);
+}
+
+/* ---------- Grid ---------- */
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
+    gap: 1.25rem;
+}

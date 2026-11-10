@@ -1,0 +1,148 @@
+.project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid var(--c-line);
+    border-radius: var(--radius-lg);
+    background-color: var(--c-bg-raised);
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+        border-color var(--dur) ease,
+        transform var(--dur-slow) var(--ease-out),
+        box-shadow var(--dur-slow) var(--ease-out);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+        24rem circle at var(--spot-x, 50%) var(--spot-y, 100%),
+        rgba(124, 92, 255, 0.22),
+        transparent 65%
+    );
+    opacity: 0;
+    transition: opacity var(--dur) ease;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+    border-color: var(--c-line-strong);
+    transform: translateY(-6px);
+    box-shadow: 0 30px 80px -40px rgba(124, 92, 255, 0.55);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+/* ---------- Media ---------- */
+
+.project-card__media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-bottom: 1px solid var(--c-line);
+    background-color: var(--c-surface);
+    overflow: hidden;
+}
+
+.project-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    filter: saturate(0.85) brightness(0.9);
+    transition:
+        transform 1.2s var(--ease-out),
+        filter var(--dur-slow) ease;
+}
+
+.project-card:hover .project-card__image,
+.project-card:focus-within .project-card__image {
+    transform: scale(1.05);
+    filter: none;
+}
+
+.project-card__kind {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--c-line-strong);
+    border-radius: var(--radius-pill);
+    background-color: rgba(6, 6, 10, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--c-text);
+}
+
+/* ---------- Body ---------- */
+
+.project-card__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: clamp(1.25rem, 2.2vw, 1.75rem);
+}
+
+.project-card__title {
+    font-size: var(--fs-h3);
+    line-height: 1.08;
+}
+
+.project-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.project-card__link:focus-visible {
+    outline: none;
+}
+
+.project-card:has(.project-card__link:focus-visible) {
+    outline: 2px solid var(--c-volt);
+    outline-offset: 4px;
+}
+
+.project-card__summary {
+    margin-top: 0.75rem;
+    color: var(--c-text-muted);
+}
+
+.project-card__footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1.75rem;
+}
+
+.project-card__arrow {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--c-line-strong);
+    border-radius: 50%;
+    font-size: 1.05rem;
+    transition:
+        background-color var(--dur) ease,
+        border-color var(--dur) ease,
+        color var(--dur) ease,
+        transform var(--dur-slow) var(--ease-out);
+}
+
+.project-card:hover .project-card__arrow,
+.project-card:focus-within .project-card__arrow {
+    background-color: var(--c-volt);
+    border-color: var(--c-volt);
+    color: var(--c-on-volt);
+    transform: rotate(45deg);
+}

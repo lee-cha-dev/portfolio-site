@@ -1,0 +1,60 @@
+.contact {
+    position: relative;
+    padding-block: clamp(7rem, 16vw, 13rem);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.contact__scene {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(50% 45% at 50% 55%, var(--c-violet-dim), transparent 75%);
+}
+
+.contact__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact__eyebrow {
+    margin-bottom: 1.5rem;
+}
+
+.contact__title {
+    max-width: 12ch;
+    font-size: var(--fs-h1);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+    text-shadow: 0 0 60px var(--c-bg);
+}
+
+.contact__lead {
+    max-width: 32rem;
+    margin-top: 1.75rem;
+    font-size: var(--fs-lead);
+    color: var(--c-text-muted);
+    text-shadow: 0 0 24px var(--c-bg), 0 0 8px var(--c-bg);
+}
+
+.contact__actions {
+    max-width: 100%;
+    margin-top: 2.5rem;
+}
+
+.contact__actions .button {
+    max-width: 100%;
+    padding: 1.15rem 1.75rem;
+    font-size: clamp(0.85rem, 3.2vw, 1.05rem);
+}
+
+.contact__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 2rem;
+    margin-top: 1.75rem;
+}

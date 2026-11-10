@@ -2,13 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=/">
-    <script type="text/javascript">
-        window.location.href = "/";
+    <title>Lee Charles — Redirecting…</title>
+    <style>
+        html { background-color: #06060a; color: #f2f0fa; font-family: system-ui, sans-serif; }
+        a { color: #c6ff3d; }
+    </style>
+    <script>
+        // GitHub Pages serves this file for any path it has no file for. Stash
+        // the requested URL and bounce to the app shell, which restores it so
+        // the client-side router can render the right page (see src/index.js).
+        sessionStorage.setItem(
+            'spa-redirect',
+            window.location.pathname + window.location.search + window.location.hash
+        );
+        window.location.replace('/');
     </script>
-    <title>404 | Redirecting to Home</title>
 </head>
 <body>
-If you are not redirected automatically, follow this <a href='/'>link to the homepage</a>.
+<noscript>
+    This site needs JavaScript. <a href="/">Go to the homepage</a>.
+</noscript>
 </body>
 </html>

@@ -1,0 +1,70 @@
+.experience__list {
+    border-top: 1px solid var(--c-line);
+}
+
+.experience__item {
+    position: relative;
+    display: grid;
+    gap: 1rem clamp(1.5rem, 4vw, 4rem);
+    padding-block: clamp(1.75rem, 3.5vw, 2.75rem);
+    border-bottom: 1px solid var(--c-line);
+}
+
+/* A volt rule draws across the top edge on hover. */
+.experience__item::before {
+    content: '';
+    position: absolute;
+    inset: -1px 0 auto;
+    height: 1px;
+    background-color: var(--c-volt);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.experience__item:hover::before {
+    transform: scaleX(1);
+}
+
+@media (min-width: 60em) {
+    .experience__item {
+        grid-template-columns: 10rem minmax(0, 4fr) minmax(0, 6fr);
+        align-items: start;
+    }
+}
+
+.experience__period {
+    padding-top: 0.45em;
+    color: var(--c-volt);
+}
+
+.experience__role {
+    font-size: var(--fs-h3);
+    line-height: 1.1;
+}
+
+.experience__org {
+    margin-top: 0.5rem;
+    color: var(--c-text-muted);
+}
+
+.experience__points {
+    display: grid;
+    gap: 0.8rem;
+    color: var(--c-text-muted);
+}
+
+.experience__point {
+    position: relative;
+    padding-left: 1.4rem;
+}
+
+.experience__point::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.8em;
+    width: 0.7rem;
+    height: 1px;
+    background-color: var(--c-text-dim);
+}

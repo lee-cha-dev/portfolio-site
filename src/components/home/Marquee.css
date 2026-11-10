@@ -1,0 +1,60 @@
+.marquee {
+    padding-block: clamp(1.1rem, 2.4vw, 1.75rem);
+    border-block: 1px solid var(--c-line);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee__track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 48s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+    animation-play-state: paused;
+}
+
+.marquee__group {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.marquee__item {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    /* Stroke painted under an ink fill, so overlapping glyph contours stay hidden. */
+    color: var(--c-bg);
+    paint-order: stroke fill;
+    -webkit-text-stroke: 2px var(--c-text-dim);
+    transition:
+        color var(--dur) ease,
+        -webkit-text-stroke-color var(--dur) ease;
+}
+
+.marquee__item:hover {
+    color: var(--c-volt);
+    -webkit-text-stroke-color: var(--c-volt);
+}
+
+.marquee__item::after {
+    content: '';
+    width: 0.32em;
+    height: 0.32em;
+    margin-inline: clamp(1.25rem, 3vw, 2.5rem);
+    background-color: var(--c-volt);
+    transform: rotate(45deg);
+}
+
+@keyframes marquee-scroll {
+    to {
+        transform: translateX(-50%);
+    }
+}

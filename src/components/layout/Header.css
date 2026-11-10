@@ -1,0 +1,259 @@
+.header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: var(--z-nav);
+    transition: transform var(--dur) var(--ease-out);
+}
+
+/*
+ * The frosted bar lives on a pseudo-element: backdrop-filter on .header itself
+ * would make it the containing block for the fixed mobile menu.
+ */
+.header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-bottom: 1px solid var(--c-line);
+    background-color: rgba(6, 6, 10, 0.72);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    opacity: 0;
+    transition: opacity var(--dur) ease;
+}
+
+.header--scrolled::before {
+    opacity: 1;
+}
+
+.header--menu-open::before {
+    opacity: 0;
+}
+
+.header--hidden {
+    transform: translateY(-100%);
+}
+
+.header__progress {
+    position: absolute;
+    inset: auto 0 -1px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--c-violet), var(--c-volt));
+    transform: scaleX(var(--scroll-progress, 0));
+    transform-origin: left;
+}
+
+.header__bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: var(--nav-height);
+}
+
+/* ---------- Name ---------- */
+
+.header__name {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    transition: color var(--dur-fast) ease;
+}
+
+.header__name:hover {
+    color: var(--c-volt);
+}
+
+/* ---------- Links ---------- */
+
+.header__nav,
+.header__links {
+    display: flex;
+    align-items: center;
+}
+
+.header__nav {
+    gap: 1.75rem;
+}
+
+.header__links {
+    gap: 0.25rem;
+}
+
+.header__link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.925rem;
+    font-weight: 500;
+    color: var(--c-text-muted);
+    transition:
+        color var(--dur-fast) ease,
+        background-color var(--dur-fast) ease;
+}
+
+.header__link:hover,
+.header__link.active {
+    color: var(--c-text);
+}
+
+.header__link:hover {
+    background-color: rgba(236, 234, 255, 0.07);
+}
+
+.header__link.active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0.05rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--c-volt);
+    transform: translateX(-50%);
+}
+
+.header__resume {
+    padding: 0.7rem 1.1rem;
+    font-size: 0.875rem;
+}
+
+.header__toggle {
+    display: none;
+}
+
+/* ---------- Mobile menu ---------- */
+
+@media (max-width: 47.99em) {
+    .header__toggle {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        place-items: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-right: -0.5rem;
+        border-radius: 50%;
+    }
+
+    .header__toggle-bars,
+    .header__toggle-bars::before {
+        display: block;
+        width: 1.4rem;
+        height: 2px;
+        border-radius: 2px;
+        background-color: var(--c-text);
+        transition: transform var(--dur) var(--ease-out);
+    }
+
+    .header__toggle-bars {
+        transform: translateY(-4px);
+    }
+
+    .header__toggle-bars::before {
+        content: '';
+        transform: translateY(8px);
+    }
+
+    .header--menu-open .header__toggle-bars {
+        transform: rotate(45deg);
+    }
+
+    .header--menu-open .header__toggle-bars::before {
+        transform: rotate(-90deg);
+    }
+
+    .header__nav {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: 2.5rem;
+        height: 100dvh;
+        padding: calc(var(--nav-height) + 2rem) var(--gutter) 3rem;
+        background-color: var(--c-bg);
+        background-image:
+            radial-gradient(60% 40% at 85% 10%, var(--c-violet-dim), transparent),
+            radial-gradient(50% 35% at 0% 100%, var(--c-volt-dim), transparent);
+        visibility: hidden;
+        opacity: 0;
+        transition:
+            opacity var(--dur) var(--ease-out),
+            visibility 0s linear var(--dur);
+    }
+
+    .header--menu-open .header__nav {
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0s;
+    }
+
+    .header__links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+    }
+
+    .header__item {
+        width: 100%;
+        border-bottom: 1px solid var(--c-line);
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+            opacity var(--dur-slow) var(--ease-out),
+            transform var(--dur-slow) var(--ease-out);
+    }
+
+    .header--menu-open .header__item {
+        opacity: 1;
+        transform: none;
+    }
+
+    .header--menu-open .header__item:nth-child(2) {
+        transition-delay: 60ms;
+    }
+
+    .header--menu-open .header__item:nth-child(3) {
+        transition-delay: 120ms;
+    }
+
+    .header--menu-open .header__item:nth-child(4) {
+        transition-delay: 180ms;
+    }
+
+    .header__link {
+        padding: 1.1rem 0;
+        border-radius: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2.25rem, 11vw, 3.5rem);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.035em;
+        color: var(--c-text);
+    }
+
+    .header__link:hover {
+        background-color: transparent;
+        color: var(--c-volt);
+    }
+
+    .header__link.active::after {
+        display: none;
+    }
+
+    .header__link.active {
+        color: var(--c-volt);
+    }
+
+    .header__resume {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
