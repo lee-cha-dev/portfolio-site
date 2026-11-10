@@ -16,7 +16,7 @@
     "react-scripts": "^5.0.1",
     "three": "^0.187.0"
   },
-  "homepage": "/",
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "CI=false react-scripts build",
